@@ -1,0 +1,19 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Java Assessment Application</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a th:class="${#httpServletRequest.requestURI == '/' ? 'nav-link active' : 'nav-link'}" aria-current="page"
+               href="/">Books list</a>
+          </li>
+          <li class="nav-item">
+            <a th:class="${#httpServletRequest.requestURI == '/add-book' ? 'nav-link active' : 'nav-link'}"
+               aria-current="page" href="/add-book">Add new book</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

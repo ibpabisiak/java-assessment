@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head.html"></head>
+<body>
+<header th:replace="fragments/header.html"></header>
+<div class="container">
+  <form method="post" action="/add-book" th:object="${bookDTO}">
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input th:class="${#fields.hasErrors('author')} ? 'form-control border border-danger' : 'form-control'"
+             type="text" id="author" name="author" placeholder="Enter the book author" th:value="${bookDTO.author}">
+      <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('author')}">
+        <ul>
+          <li th:each="errorMessage : ${#fields.errors('author')}" th:text="${errorMessage}"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input th:class="${#fields.hasErrors('title')} ? 'form-control border border-danger' : 'form-control'" type="text"
+             id="title" name="title" placeholder="Enter the book title" th:value="${bookDTO.title}">
+      <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('title')}">
+        <ul>
+          <li th:each="errorMessage : ${#fields.errors('title')}" th:text="${errorMessage}"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-check-label" for="isbn">ISBN</label>
+      <input id="isbn" name="isbn" th:value="${bookDTO.isbn}"
+             placeholder="Enter the book ISBN"
+             th:class="${#fields.hasErrors('isbn')} ? 'form-control border border-danger' : 'form-control'" type="text">
+      <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('isbn')}">
+        <ul>
+          <li th:each="errorMessage : ${#fields.errors('isbn')}" th:text="${errorMessage}"></li>
+        </ul>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
+
+</body>
+</html>

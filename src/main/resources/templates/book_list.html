@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head.html"></head>
+<body>
+<header th:replace="fragments/header.html"></header>
+
+<div class="container">
+  <div class="alert alert-info" role="alert" th:if="${#lists.isEmpty(books)}">
+    No records in database, add new records <a href="/add-book">here</a>.
+  </div>
+
+  <div th:if="${not #lists.isEmpty(books)}">
+    <table class="table table-striped">
+      <thead>
+      <th>#</th>
+      <th>Author</th>
+      <th>Title</th>
+      <th>ISBN</th>
+      </thead>
+      <tbody>
+      <tr th:each="book: ${books}">
+        <td th:text="${bookStat.index + 1}"/>
+        <td th:text="${book.author}"/>
+        <td th:text="${book.title}"/>
+        <td th:text="${book.isbn}"/>
+      </tr>
+      </tbody>
+    </table>
+    <form action="/clear" method="get">
+      <button type="submit" id="submitButton" class="btn btn-danger">Clear books list</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
