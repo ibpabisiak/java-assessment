@@ -2,7 +2,7 @@
 The Java web application written in Java/SpringBoot and Thymeleaf
 
 ### Requirements
-- Java 13
+- Java 11
 
 ### How to run the application
 - Open command line and go to the project root directory
