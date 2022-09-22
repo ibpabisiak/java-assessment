@@ -6,8 +6,7 @@ The Java web application written in Java/SpringBoot and Thymeleaf
 
 ### How to run the application
 - Open command line and go to the project root directory
-- Build the application using following command for Unix: `./gradlew build`, for Windows: `gradlew.bat build` 
-- Use following command to run the application `java -jar ./build/libs/BooksWebApp-0.0.1-SNAPSHOT.jar`
+- Build the application using following command for Unix: `./gradlew bootRun`, for Windows: `gradlew.bat bootRun` 
 - Open your web browser and open the `http://localhost:8080`
 
 ### Run as Docker container
